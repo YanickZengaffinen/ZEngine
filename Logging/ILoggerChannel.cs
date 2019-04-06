@@ -5,7 +5,7 @@ using ZEngine.Common.Manager;
 
 namespace ZEngine.Logging
 {
-    public interface ILoggerChannel : IIdentifiable
+    public interface ILoggerChannel
     {
         /// <summary>
         /// The loglevel of this channel

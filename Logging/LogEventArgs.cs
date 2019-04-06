@@ -22,5 +22,10 @@ namespace ZEngine.Logging
             Message = message;
             Level = level;
         }
+
+        public override string ToString()
+        {
+            return $"[{Time}][{Origin.FullName}][{Level}]: {Message} at {System.Environment.NewLine}{StackTrace}";
+        }
     }
 }
