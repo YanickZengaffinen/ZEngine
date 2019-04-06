@@ -8,3 +8,12 @@
 <p>
 	Classes in API projects never have .API in their name only Impl classes do so
 </p>
+
+<h1> Modules </h1>
+<ul>
+	<li> 
+		<h2> Items </h2>
+		<p> ZEngine.Items.Impl.ItemsAPI </p>
+		<p> ZEngine.Items.Impl.ItemsImpl </p>
+	</li>
+</ul>
