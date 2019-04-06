@@ -13,7 +13,7 @@
 <ul>
 	<li> 
 		<h2> Items </h2>
-		<p> ZEngine.Items.Impl.ItemsAPI </p>
+		<p> ZEngine.Items.ItemsAPI </p>
 		<p> ZEngine.Items.Impl.ItemsImpl </p>
 	</li>
 </ul>
