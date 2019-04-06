@@ -8,6 +8,7 @@ namespace ZEngine.Common.Manager.StdImpl
     /// Standard implementation of the <see cref="IManagerRegistry"/>
     /// </summary>
     [Singleton]
+    [NotThreadSafe]
     public sealed class ManagerRegistry
     {
         public static ManagerRegistry Instance { get; } = new ManagerRegistry();

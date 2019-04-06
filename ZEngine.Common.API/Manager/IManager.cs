@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ZEngine.Common.MarkerAttribute;
 
 namespace ZEngine.Common.Manager
 {
@@ -10,19 +8,20 @@ namespace ZEngine.Common.Manager
         /// Register an identifiable
         /// </summary>
         /// <param name="identifiable"></param>
-        void Register(IIdentifiable identifiable);
+        void Register(T identifiable);
 
         /// <summary>
         /// Unregisters an identifiable
         /// </summary>
         /// <param name="identifiable"></param>
-        void Unregister(IIdentifiable identifiable);
+        void Unregister(T identifiable);
 
         /// <summary>
         /// Get an identifiable via its id
         /// </summary>
         /// <param name="id"></param>
         /// <returns> Null if there exists no element with the given id </returns>
+        [Nullable]
         T Get(long id);
     }
 }

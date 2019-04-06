@@ -1,4 +1,4 @@
-﻿namespace ZEngine.Items.Core.StdImpl
+﻿namespace ZEngine.Items.Impl.Core
 {
     /// <summary>
     /// Standard implementation of <see cref="IItem"/>

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ZEngine.API\ZEngine.API.csproj" />
+    <ProjectReference Include="..\ZEngine.Items.API\ZEngine.Items.API.csproj" />
+  </ItemGroup>
+
+</Project>
