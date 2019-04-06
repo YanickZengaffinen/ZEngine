@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ZEngine.Logging.Impl.Manager;
+﻿using Logging.Impl.Manager;
+using System;
 
-namespace ZEngine.Logging
+namespace Logging
 {
     public class Logger
     {

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using ZEngine.Common.MarkerAttribute;
 
-namespace ZEngine.Logging
+namespace Logging
 {
     [Immutable]
     public class LogEventArgs : EventArgs

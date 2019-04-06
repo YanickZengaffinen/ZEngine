@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ZEngine.Logging
+﻿namespace Logging
 {
     public enum LogLevel {
         Debug = 0,

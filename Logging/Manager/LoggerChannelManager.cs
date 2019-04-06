@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ZEngine.Logging.Impl.Manager
+namespace Logging.Impl.Manager
 {
     /// <summary>
     /// Synchronous implementation of the <see cref="ILoggerChannelManager"/>

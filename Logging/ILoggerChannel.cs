@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ZEngine.Common.Manager;
-
-namespace ZEngine.Logging
+﻿namespace Logging
 {
     public interface ILoggerChannel
     {
