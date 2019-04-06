@@ -1,5 +1,4 @@
 ﻿using ZEngine.Common.Manager.StdImpl;
-using ZEngine.Items.Impl.Manager;
 using ZEngine.Module;
 
 namespace ZEngine.Items.Impl

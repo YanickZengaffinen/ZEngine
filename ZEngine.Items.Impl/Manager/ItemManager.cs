@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using ZEngine.Common.Manager;
 using ZEngine.Common.MarkerAttribute;
-using ZEngine.Items.Manager;
 
-namespace ZEngine.Items.Impl.Manager
+namespace ZEngine.Items.Impl
 {
     /// <summary>
     /// The standard implementation of the <see cref="IItemManager"/>

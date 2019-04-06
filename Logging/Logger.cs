@@ -1,4 +1,4 @@
-﻿using Logging.Impl.Manager;
+﻿using Logging.Manager;
 using Logging.Util;
 using System;
 

@@ -1,7 +1,7 @@
 ﻿using ZEngine.Common.Manager;
 using ZEngine.Common.MarkerAttribute;
 
-namespace ZEngine.Items.Manager
+namespace ZEngine.Items
 {
     /// <summary>
     /// Manager for <see cref="IItem"/>s
