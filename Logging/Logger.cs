@@ -1,4 +1,5 @@
 ﻿using Logging.Impl.Manager;
+using Logging.Util;
 using System;
 
 namespace Logging
@@ -29,7 +30,7 @@ namespace Logging
         /// <param name="logLevel"></param>
         public void Log(string message, LogLevel logLevel)
         {
-            LoggerChannelManager.Log(new LogEventArgs(type, Environment.StackTrace, DateTime.Now, message, logLevel));
+            LoggerChannelManager.Log(new LogEventArgs(type, StackTraceUtil.GetStackTraceTo(type), DateTime.Now, message, logLevel));
         }
         
         public void Debug(string message) => Log(message, LogLevel.Debug);

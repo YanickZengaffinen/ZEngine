@@ -31,7 +31,7 @@ namespace ZEngine
             foreach (string module in modules)
             {
                 var type = assembly.GetTypes().First(t => t.FullName.Equals(module));
-                if (type != null && type.IsInstanceOfType(typeof(IModule)))
+                if (type != null && typeof(IModule).IsAssignableFrom(type))
                 {
                     try
                     {

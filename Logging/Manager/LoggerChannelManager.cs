@@ -26,7 +26,7 @@ namespace Logging.Impl.Manager
         {
             foreach(ILoggerChannel channel in channels)
             {
-                if(channel.LogLevel >= log.Level)
+                if((int)channel.LogLevel <= (int)log.Level)
                 {
                     channel.Log(log);
                 }
