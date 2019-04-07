@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using ZEngine.Common.MarkerAttribute;
 
 namespace ZEngine.Common.Manager.StdImpl
 {
     /// <summary>
-    /// Standard implementation of the <see cref="IManagerRegistry"/>
+    /// Registry which holds all managers
     /// </summary>
     [Singleton]
     [NotThreadSafe]
@@ -14,17 +15,16 @@ namespace ZEngine.Common.Manager.StdImpl
         public static ManagerRegistry Instance { get; } = new ManagerRegistry();
         private ManagerRegistry() { }
 
-        private Dictionary<Type, IManager<IIdentifiable>> managers = new Dictionary<Type, IManager<IIdentifiable>>();
+        private Dictionary<Type, object> managers = new Dictionary<Type, object>();
 
         /// <summary>
         /// Get the manager for a certain type of identifiable
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <returns> Returns null if there exists no manager for the identifiable type </returns>
         [MarkerAttribute.Nullable]
-        public IManager<T> GetManager<T>() where T : IIdentifiable
+        public T GetManager<T>()
         {
-            return managers[typeof(T)] as IManager<T>;
+            return (T)managers[typeof(T)];
         }
 
         /// <summary>
@@ -32,9 +32,9 @@ namespace ZEngine.Common.Manager.StdImpl
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="manager"></param>
-        public void Register<T>(IManager<T> manager) where T : IIdentifiable
+        public void Register<T>(T manager)
         {
-            managers.Add(typeof(T), manager as IManager<IIdentifiable>);
+            managers.Add(typeof(T), manager);
         }
     }
 }

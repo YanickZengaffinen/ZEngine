@@ -1,9 +1,9 @@
 ﻿using ZEngine.Common.Manager.StdImpl;
 
-namespace ZEngine.Items.Impl.Core
+namespace ZEngine.Items.Core.StdImpl
 {
     /// <summary>
-    /// Standard implementation of <see cref="IItem"/>
+    /// Standard implementation of <see cref="IItemType"/>
     /// </summary>
     public class ItemType : IItemType
     {

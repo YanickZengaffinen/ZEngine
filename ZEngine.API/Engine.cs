@@ -37,9 +37,9 @@ namespace ZEngine
                     {
                         (Activator.CreateInstance(type) as IModule).Init();
                     }
-                    catch(Exception)
+                    catch(Exception e)
                     {
-                        logger.Error($"Failed to load module {module}. Error while instantiating module of type {type.FullName}");
+                        logger.Error($"Failed to load module {module}. Error while instantiating module of type {type.FullName}.{Environment.NewLine}{e}");
                     }
                 }
                 else
