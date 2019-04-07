@@ -25,5 +25,14 @@ namespace Logging
         {
             return $"[{Time}][{Origin.FullName}][{Level}]: {Message}{System.Environment.NewLine}{StackTrace}";
         }
+
+        /// <summary>
+        /// ToString but without stacktrace
+        /// </summary>
+        /// <returns></returns>
+        public string ToStringMinimal()
+        {
+            return $"[{Time}][{Origin.FullName}][{Level}]: {Message}";
+        }
     }
 }
