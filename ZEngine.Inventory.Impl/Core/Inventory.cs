@@ -15,7 +15,7 @@ namespace ZEngine.Inventory.Impl.Core
 
         public long ID { get; private set; } = long.MinValue;
 
-        public ulong TryAdd(IItem item, ulong amount = 1)
+        public ulong TryAdd(IItemType item, ulong amount = 1)
         {
             if(itemAmounts.ContainsKey(item.ID))
             {
@@ -29,7 +29,7 @@ namespace ZEngine.Inventory.Impl.Core
             return amount;
         }
 
-        public ulong TryRemove(IItem item, ulong amount = 1)
+        public ulong TryRemove(IItemType item, ulong amount = 1)
         {
             if (itemAmounts.TryGetValue(item.ID, out ulong currentAmount))
             {

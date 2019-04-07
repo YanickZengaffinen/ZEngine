@@ -11,7 +11,7 @@ namespace ZEngine.Inventory.Core
         /// <param name="item"></param>
         /// <param name="amount"></param>
         /// <returns> The amount of items added </returns>
-        ulong TryAdd(IItem item, ulong amount = 1);
+        ulong TryAdd(IItemType item, ulong amount = 1);
 
         /// <summary>
         /// Try to remove a certain amount of items to the inventory
@@ -19,6 +19,6 @@ namespace ZEngine.Inventory.Core
         /// <param name="item"></param>
         /// <param name="amount"></param>
         /// <returns> The amount of items removed </returns>
-        ulong TryRemove(IItem item, ulong amount = 1);
+        ulong TryRemove(IItemType item, ulong amount = 1);
     }
 }
