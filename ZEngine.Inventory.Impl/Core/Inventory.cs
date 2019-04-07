@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ZEngine.Inventory.Core;
 using ZEngine.Items;
 
@@ -14,6 +15,8 @@ namespace ZEngine.Inventory.Impl.Core
         private Dictionary<long, ulong> itemAmounts = new Dictionary<long, ulong>(); //the amount of items per type
 
         public long ID { get; private set; } = long.MinValue;
+        public ulong this[long id] => itemAmounts.ContainsKey(id) ? itemAmounts[id] : 0;
+        public IList<long> ItemIDs => itemAmounts.Keys.ToList();
 
         public ulong TryAdd(IItemType item, ulong amount = 1)
         {
