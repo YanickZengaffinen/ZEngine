@@ -23,7 +23,7 @@ namespace Logging
 
         public override string ToString()
         {
-            return $"[{Time}][{Origin.FullName}][{Level}]: {Message} at {System.Environment.NewLine}{StackTrace}";
+            return $"[{Time}][{Origin.FullName}][{Level}]: {Message}{System.Environment.NewLine}{StackTrace}";
         }
     }
 }
