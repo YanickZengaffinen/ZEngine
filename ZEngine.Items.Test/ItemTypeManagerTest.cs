@@ -20,7 +20,7 @@ namespace ZEngine.Items.Test
         public void TestModuleInit()
         {
             SetupEngine();
-            Assert.NotNull(ManagerRegistry.Instance.GetManager<IItemType>());
+            Assert.NotNull(ManagerRegistry.Instance.GetManager<IItemTypeManager>());
         }
 
         [Fact]
@@ -28,7 +28,7 @@ namespace ZEngine.Items.Test
         {
             SetupEngine();
 
-            var manager = ManagerRegistry.Instance.GetManager<IItemType>();
+            var manager = ManagerRegistry.Instance.GetManager<IItemTypeManager>();
 
             var type0 = new ItemType(0, "0");
             var typeDynamic = new ItemType("test");

@@ -22,6 +22,6 @@ namespace ZEngine.Items.Core.StdImpl
         /// </summary>
         /// <param name="name"></param>
         public ItemType(string name) : 
-            this(ManagerRegistry.Instance.GetManager<IItemType>().GetNextID(), name) { }
+            this(ManagerRegistry.Instance.GetManager<IItemTypeManager>().GetNextID(), name) { }
     }
 }
