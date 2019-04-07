@@ -8,7 +8,7 @@ namespace ZEngine.Items.Impl
         public void Init()
         {
             //register the itemmanager
-            ManagerRegistry.Instance.Register(new ItemManager());
+            ManagerRegistry.Instance.Register(new ItemTypeManager());
         }
     }
 }

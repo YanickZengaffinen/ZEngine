@@ -8,7 +8,7 @@ namespace ZEngine.Items
     /// <summary>
     /// A type of an item... e.g. a computer
     /// </summary>
-    public interface IItem : IIdentifiable
+    public interface IItemType : IIdentifiable
     {
         /// <summary>
         /// The name of the item

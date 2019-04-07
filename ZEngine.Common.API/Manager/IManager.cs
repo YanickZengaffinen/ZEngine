@@ -7,21 +7,23 @@ namespace ZEngine.Common.Manager
         /// <summary>
         /// Register an identifiable
         /// </summary>
-        /// <param name="identifiable"></param>
         void Register(T identifiable);
 
         /// <summary>
         /// Unregisters an identifiable
         /// </summary>
-        /// <param name="identifiable"></param>
         void Unregister(T identifiable);
 
         /// <summary>
         /// Get an identifiable via its id
         /// </summary>
-        /// <param name="id"></param>
         /// <returns> Null if there exists no element with the given id </returns>
         [Nullable]
         T Get(long id);
+
+        /// <summary>
+        /// Get the next free id
+        /// </summary>
+        long GetNextID();
     }
 }

@@ -4,9 +4,9 @@ using ZEngine.Common.MarkerAttribute;
 namespace ZEngine.Items
 {
     /// <summary>
-    /// Manager for <see cref="IItem"/>s
+    /// Manager for <see cref="IItemType"/>s
     /// </summary>
-    public interface IItemManager : IManager<IItem>
+    public interface IItemTypeManager : IManager<IItemType>
     {
         /// <summary>
         /// Get an item by its name
@@ -14,6 +14,6 @@ namespace ZEngine.Items
         /// <param name="name"></param>
         /// <returns></returns>
         [Nullable]
-        IItem GetByName(string name);
+        IItemType GetByName(string name);
     }
 }

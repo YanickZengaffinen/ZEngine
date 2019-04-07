@@ -8,14 +8,17 @@ namespace ZEngine.Inventory.Core
         /// <summary>
         /// Try to add an item to the inventory
         /// </summary>
-        /// <returns> True if the item has been successfully added </returns>
-        bool TryAdd(IItem item);
+        /// <param name="item"></param>
+        /// <param name="amount"></param>
+        /// <returns> The amount of items added </returns>
+        ulong TryAdd(IItem item, ulong amount = 1);
 
         /// <summary>
-        /// Try to remove an item from the inventory
+        /// Try to remove a certain amount of items to the inventory
         /// </summary>
         /// <param name="item"></param>
-        /// <returns></returns>
-        bool TryRemove(IItem item);
+        /// <param name="amount"></param>
+        /// <returns> The amount of items removed </returns>
+        ulong TryRemove(IItem item, ulong amount = 1);
     }
 }

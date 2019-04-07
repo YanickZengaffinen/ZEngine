@@ -4,9 +4,13 @@
 - Each module also has an Impl which is the default implementation of the API. 
   All behaviour of the implementation can be overridden... you do this by registering your own implementation in the ServiceRegistry.
 
-<h1> Naming Conventions </h1>
+<h1> Conventions </h1>
 <p>
+	ZEngine.<Module>.<API/Impl>
+
 	Classes in API projects never have .API in their name only Impl classes do so
+	
+	All API classes and methods must at least be documented with a <summary>
 </p>
 
 <h1> Modules </h1>
