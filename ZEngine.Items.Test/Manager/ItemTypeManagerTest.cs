@@ -5,15 +5,15 @@ using ZEngine.Common.Manager.StdImpl;
 using ZEngine.Items.Core.StdImpl;
 using ZEngine.Items.Impl;
 
-namespace ZEngine.Items.Test
+namespace ZEngine.Items.Test.Manager
 {
     public class ItemTypeManagerTest
     {
         private void SetupEngine()
         {
             new Engine(
-                typeof(ItemsAPI).FullName,
-                typeof(ItemsImpl).FullName).Init();
+                new ItemsAPI(),
+                new ItemsImpl()).Init();
         }
 
         [Fact]

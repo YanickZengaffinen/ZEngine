@@ -7,11 +7,11 @@ namespace ZEngine.Items.Core.StdImpl
     /// </summary>
     public class ItemType : IItemType
     {
-        public long ID { get; }
+        public int ID { get; }
 
         public string Name { get; }
 
-        public ItemType(long id, string name)
+        public ItemType(int id, string name)
         {
             this.ID = id;
             this.Name = name;
@@ -22,6 +22,6 @@ namespace ZEngine.Items.Core.StdImpl
         /// </summary>
         /// <param name="name"></param>
         public ItemType(string name) : 
-            this(ManagerRegistry.Instance.GetManager<IItemTypeManager>().GetNextID(), name) { }
+            this(ManagerRegistry.Instance.GetManager<IItemTypeManager>().GenerateID(), name) { }
     }
 }

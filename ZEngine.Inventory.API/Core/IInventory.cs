@@ -10,12 +10,12 @@ namespace ZEngine.Inventory.Core
         /// <summary>
         /// The ids of all itemtypes that are present in this inventory
         /// </summary>
-        IList<long> ItemIDs { get; }
+        IList<int> ItemIDs { get; }
 
         /// <summary>
         /// Indexer for the item amount of a specific type
         /// </summary>
-        ulong this[long id] { get; }
+        ulong this[int id] { get; }
 
         /// <summary>
         /// Try to add an item to the inventory

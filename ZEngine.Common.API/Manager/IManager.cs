@@ -19,11 +19,11 @@ namespace ZEngine.Common.Manager
         /// </summary>
         /// <returns> Null if there exists no element with the given id </returns>
         [Nullable]
-        T Get(long id);
+        T Get(int id);
 
         /// <summary>
         /// Get the next free id
         /// </summary>
-        long GetNextID();
+        int GenerateID();
     }
 }

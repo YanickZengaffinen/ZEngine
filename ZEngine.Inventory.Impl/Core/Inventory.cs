@@ -12,11 +12,11 @@ namespace ZEngine.Inventory.Impl.Core
     /// </summary>
     public class Inventory : IInventory
     {
-        private Dictionary<long, ulong> itemAmounts = new Dictionary<long, ulong>(); //the amount of items per type
+        private Dictionary<int, ulong> itemAmounts = new Dictionary<int, ulong>(); //the amount of items per type
 
-        public long ID { get; private set; } = long.MinValue;
-        public ulong this[long id] => itemAmounts.ContainsKey(id) ? itemAmounts[id] : 0;
-        public IList<long> ItemIDs => itemAmounts.Keys.ToList();
+        public int ID { get; private set; } = int.MinValue;
+        public ulong this[int id] => itemAmounts.ContainsKey(id) ? itemAmounts[id] : 0;
+        public IList<int> ItemIDs => itemAmounts.Keys.ToList();
 
         public ulong TryAdd(IItemType item, ulong amount = 1)
         {

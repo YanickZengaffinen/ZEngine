@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ZEngine.Common.MarkerAttribute;
+using ZEngine.Common.UID.StdImpl;
 
 namespace ZEngine.Items.Impl
 {
@@ -22,11 +23,10 @@ namespace ZEngine.Items.Impl
     {
         private static readonly Logger logger = Logger.Of(typeof(ItemTypeManager));
 
-        private Dictionary<long, IItemType> itemsById = new Dictionary<long, IItemType>();
-        private Stack<long> freeIDs = new Stack<long>();
-        private long maxID = long.MinValue;
+        private Dictionary<int, IItemType> itemsById = new Dictionary<int, IItemType>();
+        private UIDManager idManager = new UIDManager();
 
-        public IItemType Get(long id)
+        public IItemType Get(int id)
         {
             return itemsById[id];
         }
@@ -38,33 +38,28 @@ namespace ZEngine.Items.Impl
 
         public void Register(IItemType item)
         {
-            if(itemsById.ContainsKey(item.ID))
+            if(!idManager.Block(item.ID))
             {
                 logger.Warn($"ID {item.ID} already used by item {itemsById[item.ID].Name} --> will be overriden by {item.Name}");
             }
 
-            itemsById.Add(item.ID, item);
-
-            maxID = Math.Max(item.ID, maxID);
+            itemsById[item.ID] = item;
         }
 
         public void Unregister(IItemType item)
         {
             itemsById.Remove(item.ID);
 
-            freeIDs.Push(item.ID);
+            idManager.Free(item.ID);
         }
 
-        public long GetNextID()
+        /// <summary>
+        /// Generate the id for an item
+        /// </summary>
+        /// <returns></returns>
+        public int GenerateID()
         {
-            if(freeIDs.Count > 0)
-            {
-                return freeIDs.Pop();
-            }
-            else
-            {
-                return ++maxID;
-            }
+            return idManager.Generate();
         }
 
     }

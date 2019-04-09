@@ -9,6 +9,6 @@ namespace ZEngine.Common.Manager
     /// </summary>
     public interface IIdentifiable
     {
-        long ID { get; }
+        int ID { get; }
     }
 }

@@ -15,9 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logging", "Logging\Logging.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZEngine.Items.Impl", "ZEngine.Items.Impl\ZEngine.Items.Impl.csproj", "{D0D61AA3-14B1-4541-B627-9452B9D17833}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZEngine.Inventory.Impl", "ZEngine.Inventory.Impl\ZEngine.Inventory.Impl.csproj", "{9413AABF-EDFE-471D-887D-7C3F5C3EE75A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZEngine.Inventory.Impl", "ZEngine.Inventory.Impl\ZEngine.Inventory.Impl.csproj", "{9413AABF-EDFE-471D-887D-7C3F5C3EE75A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZEngine.Items.Test", "ZEngine.Items.Test\ZEngine.Items.Test.csproj", "{971AD603-FE59-4867-8C63-EAAFB86B6601}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZEngine.Items.Test", "ZEngine.Items.Test\ZEngine.Items.Test.csproj", "{971AD603-FE59-4867-8C63-EAAFB86B6601}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZEngine.Common.Test", "ZEngine.Common.Test\ZEngine.Common.Test.csproj", "{EDBADC8A-5315-400A-83C7-6A43A2BB1B8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -125,6 +127,18 @@ Global
 		{971AD603-FE59-4867-8C63-EAAFB86B6601}.Release|x64.Build.0 = Release|Any CPU
 		{971AD603-FE59-4867-8C63-EAAFB86B6601}.Release|x86.ActiveCfg = Release|Any CPU
 		{971AD603-FE59-4867-8C63-EAAFB86B6601}.Release|x86.Build.0 = Release|Any CPU
+		{EDBADC8A-5315-400A-83C7-6A43A2BB1B8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDBADC8A-5315-400A-83C7-6A43A2BB1B8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDBADC8A-5315-400A-83C7-6A43A2BB1B8A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EDBADC8A-5315-400A-83C7-6A43A2BB1B8A}.Debug|x64.Build.0 = Debug|Any CPU
+		{EDBADC8A-5315-400A-83C7-6A43A2BB1B8A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EDBADC8A-5315-400A-83C7-6A43A2BB1B8A}.Debug|x86.Build.0 = Debug|Any CPU
+		{EDBADC8A-5315-400A-83C7-6A43A2BB1B8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDBADC8A-5315-400A-83C7-6A43A2BB1B8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDBADC8A-5315-400A-83C7-6A43A2BB1B8A}.Release|x64.ActiveCfg = Release|Any CPU
+		{EDBADC8A-5315-400A-83C7-6A43A2BB1B8A}.Release|x64.Build.0 = Release|Any CPU
+		{EDBADC8A-5315-400A-83C7-6A43A2BB1B8A}.Release|x86.ActiveCfg = Release|Any CPU
+		{EDBADC8A-5315-400A-83C7-6A43A2BB1B8A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
