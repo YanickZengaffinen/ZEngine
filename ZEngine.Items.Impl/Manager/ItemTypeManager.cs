@@ -5,7 +5,7 @@ using System.Linq;
 using ZEngine.Common.MarkerAttribute;
 using ZEngine.Common.UID.StdImpl;
 
-namespace ZEngine.Items.Impl
+namespace ZEngine.Items.Manager.Impl
 {
     /// <summary>
     /// 
@@ -36,21 +36,22 @@ namespace ZEngine.Items.Impl
             return itemsById.Values.First(item => item.Name.Equals(name));
         }
 
-        public void Register(IItemType item)
+        public void Register(IItemType itemType)
         {
-            if(!idManager.Block(item.ID))
+            if(itemsById.ContainsKey(itemType.ID) || 
+                (!idManager.Block(itemType.ID) && itemType.IsStaticID))
             {
-                logger.Warn($"ID {item.ID} already used by item {itemsById[item.ID].Name} --> will be overriden by {item.Name}");
+                logger.Warn($"ID {itemType.ID} already used by item {itemsById[itemType.ID].Name} --> will be overriden by {itemType.Name}");
             }
 
-            itemsById[item.ID] = item;
+            itemsById[itemType.ID] = itemType;
         }
 
-        public void Unregister(IItemType item)
+        public void Unregister(IItemType itemType)
         {
-            itemsById.Remove(item.ID);
+            itemsById.Remove(itemType.ID);
 
-            idManager.Free(item.ID);
+            idManager.Free(itemType.ID);
         }
 
         /// <summary>

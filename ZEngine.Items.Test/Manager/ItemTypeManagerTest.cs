@@ -11,6 +11,7 @@ namespace ZEngine.Items.Test.Manager
     {
         private void SetupEngine()
         {
+            ManagerRegistry.Instance.CleanUp();
             new Engine(
                 new ItemsAPI(),
                 new ItemsImpl()).Init();

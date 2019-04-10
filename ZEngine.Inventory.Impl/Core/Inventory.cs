@@ -1,54 +1,50 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
-using ZEngine.Inventory.Core;
-using ZEngine.Items;
+using System.Text;
+using ZEngine.Common.Utils.Collections;
+using ZEngine.Items.Core;
 
-namespace ZEngine.Inventory.Impl.Core
+namespace ZEngine.Inventory.Core.Impl
 {
     /// <summary>
-    /// A simple inventory
-    /// - unlimited space
-    /// - unordered
+    /// Standard implementation of <see cref="IInventory"/>
+    /// 
+    /// - infinite space
+    /// - grouped by type
     /// </summary>
     public class Inventory : IInventory
     {
-        private Dictionary<int, ulong> itemAmounts = new Dictionary<int, ulong>(); //the amount of items per type
+        public IImmutableList<IItem> Items => itemsByType.Values.SelectMany(x => x).ToImmutableList();
 
-        public int ID { get; private set; } = int.MinValue;
-        public ulong this[int id] => itemAmounts.ContainsKey(id) ? itemAmounts[id] : 0;
-        public IList<int> ItemIDs => itemAmounts.Keys.ToList();
+        /// <guide>
+        /// The operation which will be performed the most is checking whether the inventory contains an item of a certain type.
+        /// Hence we store them by type.
+        /// </guide>
+        private IDictionary<int, IList<IItem>> itemsByType = new Dictionary<int, IList<IItem>>();
 
-        public ulong TryAdd(IItemType item, ulong amount = 1)
+        public bool Add(IItem item)
         {
-            if(itemAmounts.ContainsKey(item.ID))
-            {
-                itemAmounts[item.ID] += amount;
-            }
-            else
-            {
-                itemAmounts.Add(item.ID, amount);
-            }
+            itemsByType.PutIfAbsent(item.ItemType.ID, (int id) => new List<IItem>()).Add(item);
 
-            return amount;
+            return true;
         }
 
-        public ulong TryRemove(IItemType item, ulong amount = 1)
+        public bool Remove(IItem item)
         {
-            if (itemAmounts.TryGetValue(item.ID, out ulong currentAmount))
+            if(itemsByType.TryGetValue(item.ItemType.ID, out IList<IItem> currentItems))
             {
-                if (currentAmount > amount)
+                currentItems.Remove(item);
+                if(currentItems.Count == 0)
                 {
-                    itemAmounts[item.ID] -= amount;
-                    return amount;
+                    itemsByType.Remove(item.ItemType.ID);
                 }
-                else
-                {
-                    itemAmounts.Remove(item.ID);
-                    return currentAmount;
-                }
+
+                return true;
             }
 
-            return 0;
+            return false;
         }
     }
 }

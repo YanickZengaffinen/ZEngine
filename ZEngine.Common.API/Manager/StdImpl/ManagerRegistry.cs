@@ -36,5 +36,13 @@ namespace ZEngine.Common.Manager.StdImpl
         {
             managers.Add(typeof(T), manager);
         }
+
+        /// <summary>
+        /// Clears all managers
+        /// </summary>
+        public void CleanUp()
+        {
+            managers.Clear();
+        }
     }
 }

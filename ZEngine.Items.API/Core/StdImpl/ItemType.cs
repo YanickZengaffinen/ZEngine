@@ -8,6 +8,7 @@ namespace ZEngine.Items.Core.StdImpl
     public class ItemType : IItemType
     {
         public int ID { get; }
+        public bool IsStaticID { get; }
 
         public string Name { get; }
 
@@ -15,6 +16,7 @@ namespace ZEngine.Items.Core.StdImpl
         {
             this.ID = id;
             this.Name = name;
+            this.IsStaticID = true;
         }
 
         /// <summary>
@@ -22,6 +24,9 @@ namespace ZEngine.Items.Core.StdImpl
         /// </summary>
         /// <param name="name"></param>
         public ItemType(string name) : 
-            this(ManagerRegistry.Instance.GetManager<IItemTypeManager>().GenerateID(), name) { }
+            this(ManagerRegistry.Instance.GetManager<IItemTypeManager>().GenerateID(), name)
+        {
+            IsStaticID = false;
+        }
     }
 }

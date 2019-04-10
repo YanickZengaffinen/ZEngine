@@ -1,36 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using ZEngine.Common.Manager;
-using ZEngine.Items;
+﻿using System.Collections.Generic;
+using System.Collections.Immutable;
+using ZEngine.Common.MarkerAttribute;
+using ZEngine.Items.Core;
 
 namespace ZEngine.Inventory.Core
 {
-    public interface IInventory : IIdentifiable
+    public interface IInventory
     {
         /// <summary>
-        /// The ids of all itemtypes that are present in this inventory
+        /// Add an item to the inventory
         /// </summary>
-        IList<int> ItemIDs { get; }
+        bool Add(IItem item);
 
         /// <summary>
-        /// Indexer for the item amount of a specific type
+        /// Removes an item from the inventory
         /// </summary>
-        ulong this[int id] { get; }
-
+        bool Remove(IItem item);
+        
         /// <summary>
-        /// Try to add an item to the inventory
+        /// Getter for all items
         /// </summary>
-        /// <param name="item"></param>
-        /// <param name="amount"></param>
-        /// <returns> The amount of items added </returns>
-        ulong TryAdd(IItemType item, ulong amount = 1);
-
-        /// <summary>
-        /// Try to remove a certain amount of items to the inventory
-        /// </summary>
-        /// <param name="item"></param>
-        /// <param name="amount"></param>
-        /// <returns> The amount of items removed </returns>
-        ulong TryRemove(IItemType item, ulong amount = 1);
+        [Immutable]
+        IImmutableList<IItem> Items { get; }
     }
 }

@@ -8,9 +8,10 @@
 <p>
 	ZEngine.<Module>.<API/Impl>
 
-	Classes in API projects never have .API in their name only Impl classes do so
+	Classes in API projects never lay in a .API but all Impl classes lay within a namespace following the pattern <namespace of api class>.Impl
 	
 	All API classes and methods must at least be documented with a <summary>
+	<guide> tags may be used to clarify why certain things are implemented the way they are.
 </p>
 
 <h1> Modules </h1>
