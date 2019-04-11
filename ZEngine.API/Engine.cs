@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using ZEngine.Module;
+using ZEngine.Service;
 
 namespace ZEngine
 {
@@ -11,14 +12,19 @@ namespace ZEngine
     {
         private static readonly Logger logger = Logger.Of(typeof(Engine));
 
+        public static Engine Current { get; private set; }
+
         private readonly string[] moduleNames;
         public IList<IModule> Modules { get; private set; }
+
+        public IServiceRegistry ServiceRegistry { get; } = new ServiceRegistry();
 
         /// <summary>
         /// C'tor if you already have instances of the modules
         /// </summary>
         public Engine(params IModule[] modules)
         {
+            Engine.Current = this;
             this.Modules = modules;
         }
 
@@ -28,6 +34,7 @@ namespace ZEngine
         /// <param name="modules"> All the full names of the modules that should be loaded </param>
         public Engine(params string[] modules)
         {
+            Engine.Current = this;
             this.moduleNames = modules;
         }
 
@@ -65,7 +72,7 @@ namespace ZEngine
 
             foreach(var module in Modules)
             {
-                module.Init();
+                module.Init(this);
             }
         }
     }

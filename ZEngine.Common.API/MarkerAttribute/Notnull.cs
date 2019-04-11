@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ZEngine.Common.MarkerAttribute
 {
-    [AttributeUsage(AttributeTargets.Method, Inherited = true, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Property, Inherited = true, AllowMultiple = false)]
     public class Notnull : Attribute
     {
     }

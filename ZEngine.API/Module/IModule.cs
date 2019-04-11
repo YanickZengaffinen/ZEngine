@@ -9,6 +9,6 @@ namespace ZEngine.Module
         /// <summary>
         /// Initializes the module
         /// </summary>
-        void Init();
+        void Init(Engine engine);
     }
 }

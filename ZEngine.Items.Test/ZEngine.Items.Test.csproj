@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ZEngine.API\ZEngine.API.csproj" />
     <ProjectReference Include="..\ZEngine.Common.API\ZEngine.Common.API.csproj" />
+    <ProjectReference Include="..\ZEngine.Common.Impl\ZEngine.Common.Impl.csproj" />
     <ProjectReference Include="..\ZEngine.Items.API\ZEngine.Items.API.csproj" />
     <ProjectReference Include="..\ZEngine.Items.Impl\ZEngine.Items.Impl.csproj" />
   </ItemGroup>

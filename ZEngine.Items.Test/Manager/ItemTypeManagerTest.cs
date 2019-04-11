@@ -1,27 +1,31 @@
-using System;
 using Xunit;
-using ZEngine;
-using ZEngine.Common.Manager.StdImpl;
+using ZEngine.Common;
+using ZEngine.Common.Impl;
+using ZEngine.Common.Utils.Manager;
 using ZEngine.Items.Core.StdImpl;
 using ZEngine.Items.Impl;
 
-namespace ZEngine.Items.Test.Manager
+namespace ZEngine.Items.Manager.Test
 {
     public class ItemTypeManagerTest
     {
+        private Engine engine;
+
         private void SetupEngine()
         {
-            ManagerRegistry.Instance.CleanUp();
-            new Engine(
+            engine = new Engine(
+                new CommonAPI(),
+                new CommonImpl(),
                 new ItemsAPI(),
-                new ItemsImpl()).Init();
+                new ItemsImpl());
+            engine.Init();
         }
 
         [Fact]
         public void TestModuleInit()
         {
             SetupEngine();
-            Assert.NotNull(ManagerRegistry.Instance.GetManager<IItemTypeManager>());
+            Assert.NotNull(engine.GetManagerRegistry().GetManager<IItemTypeManager>());
         }
 
         [Fact]
@@ -29,7 +33,7 @@ namespace ZEngine.Items.Test.Manager
         {
             SetupEngine();
 
-            var manager = ManagerRegistry.Instance.GetManager<IItemTypeManager>();
+            var manager = engine.GetManagerRegistry().GetManager<IItemTypeManager>();
 
             var type0 = new ItemType(0, "0");
             var typeDynamic = new ItemType("test");

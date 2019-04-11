@@ -1,4 +1,4 @@
-﻿using ZEngine.Common.Manager.StdImpl;
+﻿using ZEngine.Common.Utils.Manager;
 
 namespace ZEngine.Items.Core.StdImpl
 {
@@ -24,7 +24,7 @@ namespace ZEngine.Items.Core.StdImpl
         /// </summary>
         /// <param name="name"></param>
         public ItemType(string name) : 
-            this(ManagerRegistry.Instance.GetManager<IItemTypeManager>().GenerateID(), name)
+            this(Engine.Current.GetManagerRegistry().GetManager<IItemTypeManager>().GenerateID(), name)
         {
             IsStaticID = false;
         }

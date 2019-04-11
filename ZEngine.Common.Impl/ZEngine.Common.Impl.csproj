@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ZEngine.API\ZEngine.API.csproj" />
+    <ProjectReference Include="..\ZEngine.Common.API\ZEngine.Common.API.csproj" />
   </ItemGroup>
 
 </Project>

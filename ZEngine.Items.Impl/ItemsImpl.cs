@@ -1,4 +1,4 @@
-﻿using ZEngine.Common.Manager.StdImpl;
+﻿using ZEngine.Common.Utils.Manager;
 using ZEngine.Items.Manager.Impl;
 using ZEngine.Module;
 
@@ -6,10 +6,10 @@ namespace ZEngine.Items.Impl
 {
     public class ItemsImpl : IModule
     {
-        public void Init()
+        public void Init(Engine engine)
         {
             //register the itemmanager
-            ManagerRegistry.Instance.Register<IItemTypeManager>(new ItemTypeManager());
+            engine.GetManagerRegistry().Register<IItemTypeManager>(new ItemTypeManager());
         }
     }
 }

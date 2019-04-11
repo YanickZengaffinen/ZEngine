@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using ZEngine.Common.MarkerAttribute;
 
-namespace ZEngine.Common.Manager.StdImpl
+namespace ZEngine.Common.Manager.Impl
 {
     /// <summary>
     /// Registry which holds all managers
     /// </summary>
     [Singleton]
     [NotThreadSafe]
-    public sealed class ManagerRegistry
+    public sealed class ManagerRegistry : IManagerRegistry
     {
-        public static ManagerRegistry Instance { get; } = new ManagerRegistry();
-        private ManagerRegistry() { }
-
         private Dictionary<Type, object> managers = new Dictionary<Type, object>();
 
         /// <summary>

@@ -20,8 +20,16 @@
 <h1> Modules </h1>
 <ul>
 	<li> 
+		<h2> Common </h2>
+		<p> ZEngine.Common.CommonAPI </p>
+		<p> ZEngine.Common.Impl.CommonImpl </p>
+
 		<h2> Items </h2>
 		<p> ZEngine.Items.ItemsAPI </p>
 		<p> ZEngine.Items.Impl.ItemsImpl </p>
+		
+		<h2> Inventory </h2>
+		<p> ZEngine.Inventory.InventoryAPI </p>
+		<p> ZEngine.Inventory.Impl.InventoryImpl </p>
 	</li>
 </ul>

@@ -1,9 +1,7 @@
 ﻿using System;
-using ZEngine.Common.MarkerAttribute;
 
 namespace Logging
 {
-    [Immutable]
     public class LogEventArgs : EventArgs
     {
         public Type Origin { get; }

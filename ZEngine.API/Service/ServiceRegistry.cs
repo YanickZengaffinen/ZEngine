@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ZEngine.Service
 {
-    public class ServiceRegistry
+    public class ServiceRegistry : IServiceRegistry
     {
         private static Dictionary<Type, object> services = new Dictionary<Type, object>();
         private static Dictionary<Type, int> servicePriorities = new Dictionary<Type, int>();
@@ -14,7 +13,7 @@ namespace ZEngine.Service
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T GetService<T>()
+        public T GetService<T>()
         {
             return (T)services[typeof(T)];
         }
@@ -27,10 +26,10 @@ namespace ZEngine.Service
         /// <typeparam name="T"></typeparam>
         /// <param name="service"></param>
         /// <param name="priority"></param>
-        public static void RegisterService<T>(T service, int priority = 0)
+        public void RegisterService<T>(T service, int priority = 0)
         {
             var key = typeof(T);
-            if(!services.ContainsKey(key) || servicePriorities[key] < priority)
+            if (!services.ContainsKey(key) || servicePriorities[key] < priority)
             {
                 services.Add(key, service);
                 servicePriorities.Add(key, priority);
