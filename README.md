@@ -14,8 +14,8 @@ Classes in API projects never lay in a .API but all Impl classes lay within a na
 </p>
 
 <p>
-All API classes and methods must at least be documented with a &ltsummary$gt
-<guide> tags may be used to clarify why certain things are implemented the way they are.
+All API classes and methods must at least be documented with a &lt;summary&gt;
+&lt;guide&gt; tags may be used to clarify why certain things are implemented the way they are.
 </p>
 
 <h1> Modules </h1>
