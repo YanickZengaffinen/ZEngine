@@ -7,6 +7,8 @@ namespace ZEngine.Common
 {
     public class CommonAPI : IModule
     {
+        public const string MODULE = "Common";
+
         public void Init(Engine engine)
         {
             

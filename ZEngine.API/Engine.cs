@@ -1,8 +1,5 @@
 ﻿using Logging;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using ZEngine.Module;
 using ZEngine.Service;
 
@@ -15,23 +12,16 @@ namespace ZEngine
         public static Engine Current { get; private set; }
 
         private readonly string[] moduleNames;
-        public IList<IModule> Modules { get; private set; }
 
         public IServiceRegistry ServiceRegistry { get; } = new ServiceRegistry();
 
-        /// <summary>
-        /// C'tor if you already have instances of the modules
-        /// </summary>
-        public Engine(params IModule[] modules)
-        {
-            Engine.Current = this;
-            this.Modules = modules;
-        }
+        //names of all modules that are currently loaded
+        private IList<string> loadedModules = new List<string>();
 
         /// <summary>
         /// C'tor
         /// </summary>
-        /// <param name="modules"> All the full names of the modules that should be loaded </param>
+        /// <param name="modules"> All the names of all the modules that should be loaded </param>
         public Engine(params string[] modules)
         {
             Engine.Current = this;
@@ -43,36 +33,47 @@ namespace ZEngine
         /// </summary>
         public void Init()
         {
-            if (Modules == null)
+            foreach(string moduleName in moduleNames)
             {
-                Modules = new List<IModule>(moduleNames.Length);
-                var assembly = Assembly.GetExecutingAssembly();
-
-                foreach (string module in moduleNames)
-                {
-                    string m = String.Join<string>(",", assembly.GetTypes().Select(x => x.FullName).ToArray());
-                    var type = assembly.GetTypes().First(t => t.FullName.Equals(module));
-                    if (type != null && typeof(IModule).IsAssignableFrom(type))
-                    {
-                        try
-                        {
-                            Modules.Add(Activator.CreateInstance(type) as IModule);
-                        }
-                        catch (Exception e)
-                        {
-                            logger.Error($"Failed to load module {module}. Error while instantiating module of type {type.FullName}.{Environment.NewLine}{e}");
-                        }
-                    }
-                    else
-                    {
-                        logger.Error($"Failed to load module {module} due to invalid type {type?.FullName}. Make sure the specified type exists in the assembly and inherits from {typeof(IModule).FullName}");
-                    }
-                }
+                LoadModule(moduleName);
             }
+        }
 
-            foreach(var module in Modules)
+        private void LoadModule(string moduleName)
+        {
+            if (!loadedModules.Contains(moduleName))
             {
-                module.Init(this);
+                logger.Info($"Loading module {moduleName}");
+
+                var apiModule = ModuleUtil.GetModuleForClassName(ModuleUtil.GetModuleAPIClassName(moduleName));
+                if(apiModule != null)
+                {
+                    var deps = ModuleUtil.GetModuleDependencies(apiModule);
+                    foreach (var dep in deps)
+                    {
+                        LoadModule(dep);
+                    }
+
+                    apiModule.Init(this);
+                }
+                else
+                {
+                    logger.Warn($"Missing API module class for {moduleName}");
+                }
+
+                var implModule = ModuleUtil.GetModuleForClassName(ModuleUtil.GetModuleImplClassName(moduleName));
+                if(implModule != null)
+                {
+                    //TODO: do all dependencies have to be declared on the API?
+                    implModule.Init(this);
+                }
+                else
+                {
+                    logger.Warn($"Missing Impl module class for {moduleName}");
+                }
+
+                loadedModules.Add(moduleName);
+                logger.Info($"Finished loading module {moduleName}");
             }
         }
     }

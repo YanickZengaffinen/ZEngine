@@ -13,11 +13,7 @@ namespace ZEngine.Items.Manager.Test
 
         private void SetupEngine()
         {
-            engine = new Engine(
-                new CommonAPI(),
-                new CommonImpl(),
-                new ItemsAPI(),
-                new ItemsImpl());
+            engine = new Engine(ItemsAPI.MODULE);
             engine.Init();
         }
 

@@ -11,11 +11,7 @@ namespace ZEngine.Items.Core.Test
     {
         private void SetupEngine()
         {
-            new Engine(
-                new CommonAPI(),
-                new CommonImpl(),
-                new ItemsAPI(),
-                new ItemsImpl()).Init();
+            new Engine(ItemsAPI.MODULE).Init();
         }
 
         [Fact]
