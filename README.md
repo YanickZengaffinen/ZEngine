@@ -18,19 +18,23 @@ All API classes and methods must at least be documented with a <summary>
 <guide> tags may be used to clarify why certain things are implemented the way they are.
 </p>
 
-<a href="https://trello.com/b/z0e7eYER/roadmap-zengine">Roadmap</a>
-
 <h1> Modules </h1>
 <ul>
 	<li> 
 		<h2> Common </h2>
 		<p> ZEngine.Common.CommonAPI </p>
 		<p> ZEngine.Common.Impl.CommonImpl </p>
+	</li>
+	<li>
 		<h2> Items </h2>
 		<p> ZEngine.Items.ItemsAPI </p>
 		<p> ZEngine.Items.Impl.ItemsImpl </p>
+	</li>
+	<li>
 		<h2> Inventory </h2>
 		<p> ZEngine.Inventory.InventoryAPI </p>
 		<p> ZEngine.Inventory.Impl.InventoryImpl </p>
 	</li>
 </ul>
+
+<h1><a href="https://trello.com/b/z0e7eYER/roadmap-zengine">Roadmap</a></h1>
